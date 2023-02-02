@@ -7,8 +7,11 @@ pub struct InstantiateMsg {
 
 #[cw_serde]
 pub enum ExecuteMsg {
+    Decrement {},
+    IncrementBy {},
+    DecrementBy {},
     Increment {},
-    Reset { count: i32 },
+    ReflectFunds {},
 }
 
 #[cw_serde]
@@ -24,3 +27,4 @@ pub enum QueryMsg {
 pub struct GetCountResponse {
     pub count: i32,
 }
+
