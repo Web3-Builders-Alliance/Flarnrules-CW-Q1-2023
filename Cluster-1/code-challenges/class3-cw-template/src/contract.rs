@@ -44,15 +44,19 @@ pub fn execute(
         ExecuteMsg::Decrement {} => execute::decrement(deps),
         ExecuteMsg::IncrementBy { count } => execute::increment_by(deps, count),
         ExecuteMsg::DecrementBy { count } => execute::decrement_by()
-        ExecuteMsg::ReflectFunds { amount } => {
-            info.funds[0].amount =! amount {
-                return Err(ContractError)
-            }
-
+        ExecuteMsg::ReflectFunds { } => {
             let bankmsg = BankMsg::Send{
-                to_address:
-            }
-        }
+                to_address: info.sender.to_string(),
+                amount: info.funds,
+            };
+
+            let cosmosmsg = CosmosMsg::Bank(bankmsg);
+
+            Ok(Response::new()
+                .add_message(cosmosmsg)
+                .add_attribute("action", "reflect_funds")
+                .add_attribute("amount, amount.to_string())
+        },
     }
 }
 
