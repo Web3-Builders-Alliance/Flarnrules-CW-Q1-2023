@@ -41,6 +41,18 @@ pub fn execute(
     match msg {
         ExecuteMsg::Increment {} => execute::increment(deps),
         ExecuteMsg::Reset { count } => execute::reset(deps, info, count),
+        ExecuteMsg::Decrement {} => execute::decrement(deps),
+        ExecuteMsg::IncrementBy { count } => execute::increment_by(deps, count),
+        ExecuteMsg::DecrementBy { count } => execute::decrement_by()
+        ExecuteMsg::ReflectFunds { amount } => {
+            info.funds[0].amount =! amount {
+                return Err(ContractError)
+            }
+
+            let bankmsg = BankMsg::Send{
+                to_address:
+            }
+        }
     }
 }
 
