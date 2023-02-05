@@ -2,7 +2,7 @@
 WBA Q1 2023
 =
 
-This code journal will be looking at the structure of the CW20 base contract. The CW20 base contract has the following rust files, called crates in rust.
+This code journal will be looking at the high level structure of the CW20 base contract. The CW20 base contract has the following rust files (.rs):
 
 - allowances.rs
 - contract.rs
@@ -13,4 +13,22 @@ This code journal will be looking at the structure of the CW20 base contract. Th
 - state.rs
 
 Based on the CW20 spec, the base contract has **messages**, **queries**, and **receiver**.
+
+#Base contract:
+
+    ##messages
+        - Transfer
+        - Send
+        - Burn
+
+
+    ##queries
+        - Balance
+        - TokenInfo
+        
+
+    ##receiver
+        - Receive
+        *generally not implemented by a CW20 contract*
+
 
