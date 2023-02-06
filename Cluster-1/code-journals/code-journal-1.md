@@ -1,6 +1,6 @@
-#Code Journal 1, for Cluster 1
+# Code Journal 1, for Cluster 1
 WBA Q1 2023
-=
+---
 
 This code journal will be looking at the high level structure of the CW20 base contract. The CW20 base contract has the following rust files (.rs):
 
@@ -14,21 +14,21 @@ This code journal will be looking at the high level structure of the CW20 base c
 
 Based on the CW20 spec, the base contract has **messages**, **queries**, and **receiver**.
 
-#Base contract:
+# Base contract:
 
-    ##messages
-        - Transfer
-        - Send
-        - Burn
+## messages
+- Transfer
+- Send
+- Burn
 
 
-    ##queries
-        - Balance
-        - TokenInfo
+## queries
+- Balance
+- TokenInfo
         
 
-    ##receiver
-        - Receive
-        *generally not implemented by a CW20 contract*
+## receiver
+- Receive
+*generally not implemented by a CW20 contract*
 
 
