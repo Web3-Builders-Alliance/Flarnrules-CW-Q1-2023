@@ -17,9 +17,19 @@ pub fn instantiate(
     _deps: DepsMut,
     _env: Env,
     _info: MessageInfo,
-    _msg: InstantiateMsg,
+    msg: InstantiateMsg,
 ) -> Result<Response, ContractError> {
-    unimplemented!()
+    owner: info.sender.clone(),
+    };
+    set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
+    STATE.save(deps.storage, &state)?;
+
+    Ok(Response::new()
+        .add_attribute("method", "instantiate")
+        .add_attribute("owner", info.sender)
+        .add_attribute("count", msg.count.to_string())
+    )
+    
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]
@@ -29,7 +39,11 @@ pub fn execute(
     _info: MessageInfo,
     _msg: ExecuteMsg,
 ) -> Result<Response, ContractError> {
-    unimplemented!()
+        ExecuteMsg::Send {
+        contract,
+        amount,
+        msg,
+    }
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]
