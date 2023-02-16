@@ -7,6 +7,7 @@ pub struct InstantiateMsg {
 
 #[cw_serde]
 pub enum ExecuteMsg {
+    ForwardTokens { forward_to_addr: String },
 
 }
 

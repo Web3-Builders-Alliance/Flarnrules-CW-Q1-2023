@@ -1,6 +1,6 @@
 #[cfg(not(feature = "library"))]
 use cosmwasm_std::entry_point;
-use cosmwasm_std::{Binary, Deps, DepsMut, Env, MessageInfo, Response, StdResult};
+use cosmwasm_std::{BankMsg, Binary, CosmosMsg, Deps, DepsMut, Env, MessageInfo, Response, StdResult};
 // use cw2::set_contract_version;
 
 use crate::error::ContractError;
@@ -17,37 +17,49 @@ pub fn instantiate(
     _deps: DepsMut,
     _env: Env,
     _info: MessageInfo,
-    msg: InstantiateMsg,
+    _msg: InstantiateMsg,
 ) -> Result<Response, ContractError> {
-    owner: info.sender.clone(),
-    };
-    set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
-    STATE.save(deps.storage, &state)?;
-
-    Ok(Response::new()
-        .add_attribute("method", "instantiate")
-        .add_attribute("owner", info.sender)
-        .add_attribute("count", msg.count.to_string())
-    )
-    
+    Ok(Response::new().add_attribute("action", "instantiate"))   
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]
 pub fn execute(
-    _deps: DepsMut,
-    _env: Env,
-    _info: MessageInfo,
-    _msg: ExecuteMsg,
+    deps: DepsMut,
+    env: Env,
+    info: MessageInfo,
+    msg: ExecuteMsg,
 ) -> Result<Response, ContractError> {
-        ExecuteMsg::Send {
-        contract,
-        amount,
-        msg,
+    match msg {
+        ExecuteMsg::ForwardTokens { forward_to_addr } => {
+            forward_tokens (deps, env, info, forward_to_addr)
+        }
     }
 }
 
+fn forward_tokens(
+    deps: DepsMut,
+    _env: Env,
+    info: MessageInfo,
+    forward_to_addr: String,
+) -> Result<Response, ContractError> {
+    let validated_addr = deps.api.addr_validate(&forward_to_addr)?.to_string();
+
+    let msg = BankMsg::Send {
+        to_address: validated_addr,
+        amount: info.funds,
+    };
+
+    Ok(Response::new()
+        .add_attribute("action", "forward_tokens")
+        .add_message(CosmosMsg::Bank(msg)))
+}
+
 #[cfg_attr(not(feature = "library"), entry_point)]
-pub fn query(_deps: Deps, _env: Env, _msg: QueryMsg) -> StdResult<Binary> {
+pub fn query(
+    _deps: Deps, 
+    _env: Env, 
+    _msg: QueryMsg
+) -> StdResult<Binary> {
     unimplemented!()
 }
 
