@@ -1,0 +1,1 @@
+74f5d1540b62d3d0ecf1634c0d5d19b4507ff189fed079d80dc7727be0c2fedb  ./target/wasm32-unknown-unknown/release/receiver_contract.wasm

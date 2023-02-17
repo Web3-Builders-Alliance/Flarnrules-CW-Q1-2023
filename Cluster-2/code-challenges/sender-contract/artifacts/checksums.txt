@@ -1,0 +1,1 @@
+02be42557bb79e1b73435236a944c19fe54bc00de6ca86849cbfd26b000731d3  receiver_contract.wasm
