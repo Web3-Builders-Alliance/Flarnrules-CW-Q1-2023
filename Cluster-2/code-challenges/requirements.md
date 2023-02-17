@@ -114,7 +114,7 @@ Nothing happened. Gonna read through the Discord chat one last time and call it 
 
 ~ ~ ~ ~ ~
 
-So I read through the Discord chat and it seems this is the point
+So I read through the Discord chat and it seems this is the point where I need to create a wallet and fund it with fake luna.
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - -
