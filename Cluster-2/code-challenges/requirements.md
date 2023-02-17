@@ -138,7 +138,32 @@ It is the only way to recover your account if you ever forget your password.
 
 cluster like two since pill base situate piano refuse phrase tilt dentist canyon depart glide bridge amused cage minimum trim intact movie roof round
 
+*I dont think I can do anything with this, so I'm redoing test1 without the `--dry-run` flag*
+
 * * * * * * * * *
+
+name: test1
+  type: local
+  address: terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"ArjJNMOnQxrbZkGJSAaE4PgHcCUn0W37Ms4DlAWu/ZxN"}'
+  mnemonic: ""
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+left ensure midnight leader afraid ill depend lab unhappy sugar gallery decrease case scorpion mammal salt notice deliver become useful valley umbrella wagon salad
+
+I also created a **test2** wallet
+
+test2
+name: test2
+  type: local
+  address: terra1w2mp25v679253husuua244ck44e6cdyxq9x2z7
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"ApcPDuIQILfiPSt9/D+B/uzfrGAId/u1VLsDljKD60mw"}'
+  mnemonic: ""
+
+insect slide candy state adjust traffic ceiling senior hover cat fat reunion boat effort tomorrow token radar palace emotion siege nerve peasant super ready
 
 - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -153,7 +178,7 @@ To summarize:
 	[x] then run that big CLI command to build as a contract.wasm in $CODE
 
 [] Create and fund a terra "pisco-1" wallet with fake luna
-	[] create wallet
+	[x] create wallet (created test1 and test2, run `terrad keys list` to see)
 	[] fund wllet
 
 [] Deploy the smart contract to the testnet
