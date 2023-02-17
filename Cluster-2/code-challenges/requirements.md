@@ -116,6 +116,29 @@ Nothing happened. Gonna read through the Discord chat one last time and call it 
 
 So I read through the Discord chat and it seems this is the point where I need to create a wallet and fund it with fake luna.
 
+To do this, I need to use the following command `terrad keys add <name> [flags]`
+
+## Test 1:
+`terrad keys add test1 --dry-run`
+The `--dry-run` flag performs the action but doesnt' add the key to local keystore.
+
+* * * * * * * * *
+
+**Result:**
+
+name: test1
+  type: local
+  address: terra1ypetnu90y8ehe5358fdtkyxn7vu4aa0etajcm0
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"Au3STiM8OTAKhaPL+6xi4glnsFbZDV9SpN/5YUS3sgbx"}'
+  mnemonic: ""
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+cluster like two since pill base situate piano refuse phrase tilt dentist canyon depart glide bridge amused cage minimum trim intact movie roof round
+
+* * * * * * * * *
 
 - - - - - - - - - - - - - - - - - - - - - - - - -
 
