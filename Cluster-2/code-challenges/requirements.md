@@ -177,9 +177,9 @@ To summarize:
 	[x] run `cargo wasm` for testing purposes
 	[x] then run that big CLI command to build as a contract.wasm in $CODE
 
-[] Create and fund a terra "pisco-1" wallet with fake luna
+[x] Create and fund a terra "pisco-1" wallet with fake luna
 	[x] create wallet (created test1 and test2, run `terrad keys list` to see)
-	[] fund wllet
+	[x] fund wllet
 
 [] Deploy the smart contract to the testnet
 
