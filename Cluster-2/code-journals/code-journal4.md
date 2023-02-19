@@ -33,6 +33,18 @@ This code journal is going to document my experience with deploying a smart cont
 
 ## 1 Write a smart contract in Rust with the Cosmwasm framework
 
+First, we need to generate an empty repo with `cargo generate`.
+
+For a minimal repo (basically empty file structure) we can run:
+
+`cargo generate --git https://github.com/CosmWasm/cw-template.git --name PROJECT_NAME -d minimal=true`
+
+Make sure to replace `PROJECT_NAME` with the project name of *your* project. In this case, I called my project `sender-contract`. I need to look into the naming conventions of CosmWasm smart contracts to get a better sense of good names. Here's a few contracts that have been deployed:
+
+* 
+
+
+
 CosmWasm smart contracts have the following file structure:
 
 
