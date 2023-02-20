@@ -165,6 +165,102 @@ name: test2
 
 insect slide candy state adjust traffic ceiling senior hover cat fat reunion boat effort tomorrow token radar palace emotion siege nerve peasant super ready
 
+= = = = = = = = = = = = = = = = = = = = = = = = =
+
+To upload the contract, I ran the following command from my ~/repos/Flarnrules-CW-Q1-2023/Cluster-2/code-challenges/sender-contract directory:
+
+`terrad tx wasm store ./artifacts/receiver_contract.wasm --from test1 $TXFLAG -y -b block`
+
+the `test1` is the name of the first wallet I created with terrad. The terminal printed this huge output:
+
+```
+gas estimate: 1174243
+{"height":"4250265","txhash":"3732A3BB81452B716FB26B848272D2BDB6B8AD152E364B06B26051A01525EB75","codespace":"","code":0,"data":"0A250A1E2F636F736D7761736D2E7761736D2E76312E4D736753746F7265436F6465120308EB3B","raw_log":"[{\"events\":[{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"/cosmwasm.wasm.v1.MsgStoreCode\"},{\"key\":\"module\",\"value\":\"wasm\"},{\"key\":\"sender\",\"value\":\"terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4\"}]},{\"type\":\"store_code\",\"attributes\":[{\"key\":\"code_id\",\"value\":\"7659\"}]}]}]","logs":[{"msg_index":0,"log":"","events":[{"type":"message","attributes":[{"key":"action","value":"/cosmwasm.wasm.v1.MsgStoreCode"},{"key":"module","value":"wasm"},{"key":"sender","value":"terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4"}]},{"type":"store_code","attributes":[{"key":"code_id","value":"7659"}]}]}],"info":"","gas_wanted":"1174243","gas_used":"917497","tx":null,"timestamp":"","events":[{"type":"coin_spent","attributes":[{"key":"c3BlbmRlcg==","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true},{"key":"YW1vdW50","value":"MjkzNTYxdWx1bmE=","index":true}]},{"type":"coin_received","attributes":[{"key":"cmVjZWl2ZXI=","value":"dGVycmExN3hwZnZha20yYW1nOTYyeWxzNmY4NHoza2VsbDhjNWxrYWVxZmE=","index":true},{"key":"YW1vdW50","value":"MjkzNTYxdWx1bmE=","index":true}]},{"type":"transfer","attributes":[{"key":"cmVjaXBpZW50","value":"dGVycmExN3hwZnZha20yYW1nOTYyeWxzNmY4NHoza2VsbDhjNWxrYWVxZmE=","index":true},{"key":"c2VuZGVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true},{"key":"YW1vdW50","value":"MjkzNTYxdWx1bmE=","index":true}]},{"type":"message","attributes":[{"key":"c2VuZGVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true}]},{"type":"tx","attributes":[{"key":"ZmVl","value":"MjkzNTYxdWx1bmE=","index":true},{"key":"ZmVlX3BheWVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true}]},{"type":"tx","attributes":[{"key":"YWNjX3NlcQ==","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQvMA==","index":true}]},{"type":"tx","attributes":[{"key":"c2lnbmF0dXJl","value":"cWp1L1ZMSXcrSS8xaGUrMmNta1A5dittWHdHUWVvMEtPREdFNm1MczROTnJtNHpvSWNWQmViUEZ1OFFSSDFZT2w0SGdGV0xwK3BvZ2t5MitNd1VQL3c9PQ==","index":true}]},{"type":"message","attributes":[{"key":"YWN0aW9u","value":"L2Nvc213YXNtLndhc20udjEuTXNnU3RvcmVDb2Rl","index":true}]},{"type":"message","attributes":[{"key":"bW9kdWxl","value":"d2FzbQ==","index":true},{"key":"c2VuZGVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true}]},{"type":"store_code","attributes":[{"key":"Y29kZV9pZA==","value":"NzY1OQ==","index":true}]}]}
+```
+
+I think my contract is on the blockchain now. According to the cosmwasm book (which is not finished, and I would be interested in assisting with readability and user friendliness... there's some stuff that's kind of poorly explained in there), I next need to instantiate the contract to create it's new instance.
+
+I need to search through this massive output to find the `code_id` which I think is `7659`. I think this means that there have been 7,658 contracts uploaded before this one to this testnet.
+
+With the `code_id` I should be able to instantiate my contract. I need to run the following command:
+
+```
+terrad tx wasm instantiate 7659 \
+  '{ "admin": "terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4", "members": [] }' \
+  --from wallet --label "Group" --no-admin $TXFLAG -y
+```
+
+This didn't work. I got an error: `wallet.info: key not found`
+
+- - - 
+
+Okay here's a solution. At ~48 minutes into last Wednesday's class, Javier gave some instructions:
+
+1. Have terrad
+2. Have a wallet added to your denom `terrad keys add <name>` for testing purposes just generate a random one. This instruction was not clear. `terrad <keys> add <name>`
+3. terrad tx wasm insantiate <code_id>"{}" --from<wallet> --label"label" --node --gas-adjustment 1.3 -y-b block --output json --admin "juno1...". Then talked about creating scripts. Bruh this is impossible to follow.
+
+
+- - -
+
+That stuff above is way to disjointed for me to make any progress....
+
+The command that I am stuck on currently is the instantiate command.
+
+terrad says:
+
+terrad tx wasm instantiate [code_id_int64] [json_encoded_init_args] --label [text] --admin [address,optional] --amount [coins,optional] [flags]
+
+let's break this down.
+
+1. **terrad tx wasm instantiate** : this is the start of the command, just need to write it out
+2. **[code_id_int64]** : I'm pretty certain this is the code_id I located earlier, in this case *7659*
+3. **[json_encoded_init_args]** : I don't really understand this one.
+4. **--label [text]** : I don't understand this one.
+5. **--admin [address,optional]** : This is *not* the public key that loaded the contract
+6. **--amount [coins,optional]** : I'll get back to this
+7. **[flags]** : There's a ton of flags. I need to figure out which ones I need.
+
+I need to figure out 3, 4, 5, 6 and 7.
+
+[] Item 3 - json_encoded_init_args
+[] Item 4 - --label [text]
+[] Item 5 - admin [address,optional]
+[] Item 6 - amount [coins,optional]
+[] Item 7 - flags
+
+Cluster 2 slides seem to indicate a different order of items in the instantiate command.
+
+`junod tx wasm instantiate <code_id> "'{}'" --from <wallet> --label "label" --node <rpc_endpoint> --chain-id uni-5 --gas-prices 0.25ujuno --gas auto --gas-adjustment 1.3 -y -b block --output json --admin "juno1…"`
+
+1 is <chain tool name> tx wasm instantiate 
+
+2 <code_id>
+
+3. just says "'{}'"   <<<<<<< wtf.......
+
+4. --from <wallet>
+
+5. --label "label"
+
+6. -node <rpc_endpoint>
+
+7. --chain-id <chain-id>
+
+8. --gas-prices 0.25<denom>
+
+9. --gas auto
+
+10. --gas-adjustment 1.3 -y -b block --output json 
+
+11. --admin "admin address"
+
+= = = =
+
+Let's try the above command:
+
+`terrad tx wasm instantiate 7659 "'{}'" --from test1 --label WBA_test_token_sender --node https://terra-testnet-rpc.polkachu.com:443 --chain-id pisco-1 --gas-prices 0.25uluna --gas auto --gas-adjustment 1.3 -y -b block --output json --admin "terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4"`
+
 - - - - - - - - - - - - - - - - - - - - - - - - -
 
 To summarize:
