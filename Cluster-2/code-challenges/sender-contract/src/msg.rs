@@ -1,6 +1,7 @@
 use cosmwasm_schema::{cw_serde, QueryResponses};
 use cosmwasm_std::Coin;
 
+#[derive()]
 #[cw_serde]
 pub struct InstantiateMsg {
     
