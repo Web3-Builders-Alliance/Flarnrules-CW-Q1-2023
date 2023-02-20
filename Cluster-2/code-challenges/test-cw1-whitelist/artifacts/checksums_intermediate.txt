@@ -1,0 +1,1 @@
+864d763f4b093176df7b05fa0631b90ed5c72ac4ed79b3021154fbdbbec3ae19  ./target/wasm32-unknown-unknown/release/test_cw1_whitelist.wasm
