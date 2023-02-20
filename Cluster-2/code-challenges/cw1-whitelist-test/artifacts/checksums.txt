@@ -1,1 +1,0 @@
-601731c759b84c5d781991b060c631cf2fe5ba680591d38c6cbf73fb63601bfb  cw1_whitelist_test.wasm
