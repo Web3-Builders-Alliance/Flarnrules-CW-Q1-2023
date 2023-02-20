@@ -9,17 +9,17 @@
 * https://faucet.terra.money/
 
 
-1. [] Generate new project, start with cw-template https://github.com/CosmWasm/cw-template
+1. [x] Generate new project, start with cw-template https://github.com/CosmWasm/cw-template
 
     * Enter `cargo generate --git https://github.com/CosmWasm/cw-template.git --name PROJECT_NAME -d minimal=true` into terminal in my Cluster2/code-challenges directory
     * PROJECT_NAME -> whitelist_test_contract
     * `cargo generate --git https://github.com/CosmWasm/cw-template.git --name PROJECT_NAME -d minimal=true`
 
-2. [] Pick a sample contract from cw-plus https://github.com/CosmWasm/cw-plus
+2. [x] Pick a sample contract from cw-plus https://github.com/CosmWasm/cw-plus
 
     * I picked cw1-whitelist https://github.com/CosmWasm/cw-plus/tree/main/contracts/cw1-whitelist
 
-3. [] Copy and paste the code from each of the src files into my src files.
+3. [x] Copy and paste the code from each of the src files into my src files.
 
     * contract.rs
     * error.rs
@@ -28,15 +28,15 @@
     * msg.rs
     * state.rs
 
-4. [] Make sure Cargo.toml is configured correctly
+4. [x] Make sure Cargo.toml is configured correctly
 
     * Need to check dependencies, cw1, cw2, etc.
 
-5. [] Make sure that the contract compiles
+5. [x] Make sure that the contract compiles
 
     * run `cargo run` in the root directory of the project, in this case ~/../whitelist_test_contract
 
-6. [] Create optimized wasm file
+6. [x] Create optimized wasm file
 
     * run `docker run --rm -v "$(pwd)":/code \
   --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
@@ -45,18 +45,23 @@
 
     * This should create an `artifacts` directory in the root directory of the project
 
-7. [] Install necessary blockchain code to interact with desired blockchain
+7. [x] Install necessary blockchain code to interact with desired blockchain
 
     * First, you need to install the tools to interact with your choice of blockchain
     * In this case, I am using a terra testnet pisco-1, so we need the Terrad tool.
     * This can be installed following the steps at https://docs.terra.money/develop/terrad/install-terrad/
     * Check you installed it correctly with the command `terrad version --long`
 
-8. [] Create a testnet wallet and fund it with test tokens:
+8. [x] Create a testnet wallet and fund it with test tokens:
 
     * run the command `terrad keys add <wallet name>`
     * we can create a new wallet: test3
     * go to a faucet to fund that wallet, by pasting the public key in the address bar https://faucet.terra.money/
+    **name:** test3
+    **address:** terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr
+    **mnemonic:** guard cage little attract thing toast debate couch replace chest hawk post acoustic lesson coconut story clerk rally hockey pipe into hungry match maple
+    **pubkey:** '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A2ULirKgRDudpplI589W/ZbWEyeDTTuiZsuOzJzuKIQ8"}'
+
 
 9. [] Upload the contract to a testnet
 
