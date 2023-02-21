@@ -24,6 +24,59 @@ Three entry points:
 Workflow:  
 ![Uploading and Instantiating](https://github.com/flarnrules/images/blob/main/Uploading%20Code%20and%20Instantiating.png)
 
+# What is CosmWasm
+
+* Multi-Chain Smart contracting Solution
+* Deep Cosmos SDK integration
+* Security-First Design
+* Uses Web Assembly VM
+
+# History
+
+* Cosmos Hackatom in Berlin, June 2019, created by Ethan Frey of Confio
+* 0.6 release in January 2020
+
+# How CosmWasm Works?
+
+* Use wasmer.io to run the bytecode
+* Precompiles Web Assembly to sandboxed native code
+* Isolated memory space
+* All CPU usage is gas metered
+* Only access besides CPU and memory is via imports
+    * read and write to a a subset of blockchain state
+    * Query other modules
+    * a few blockchain-specific APIs
+* No network, no non-determinism, no jail-breaking
+
+... The above is more "what Cosm Wasm does"
+
+... I'm not sure this video is getting me what I need.
+
+= = = = = = = = = = = = = = =
+
+# Security First
+
+* Actor model for dispatching messages: get a message, return a message.
+* Built-in overflow checks
+* Explicit, structured APIs to call functions
+* Rust
+* First-class test tooling (quick-check / fuzzing)
+
+... I don't really know what a lot of the above means, but I do know that the actor model is a *very* important concept and a major difference between CosmWasm vs EVM based smart contracts. CosmWasm uses the "Actor Model" whereas Ethereum uses the "Account model".  
+
+# Cosm Wasm Ties Deeply into Native Code
+
+* Bank and staking models
+* Built-in access to call/query other contracts
+
+= = = = = = = = = = = =
+
+This was interesting but didn't really move the needle for the deployment.
+
+= = = = = = = = = = = =
+
+
+
 
 
 
