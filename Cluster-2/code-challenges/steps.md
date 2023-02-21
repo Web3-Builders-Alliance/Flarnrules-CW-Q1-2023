@@ -68,8 +68,11 @@
     * Use the `terrad tx wasm store` command
     * make sure to run this from the root directory of the contract
     * My previous attempt worked with the below command:
-    * `terrad tx wasm store ./artifacts/receiver_contract.wasm --from test3 $TXFLAG -y -b block`
+    * `terrad tx wasm store ./artifacts/test_cw1_whitelist.wasm --from test3 $TXFLAG -y -b block`
     * Big block of text printed to the terimal is good, if you get an error... need to do some debugging.
+    * Keep getting error... I'm stuck here.
+    * current error: `Error: post failed: Post "http://localhost:26657": dial tcp 127.0.0.1:26657: connect: connection refused`
+    * I'm going to do code journal 6 about this error.
     * The code id is important. In this case it was `xxxx`
 
 10. [] Instantiate the contract
