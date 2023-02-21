@@ -273,7 +273,7 @@ Time to do the next step!!!!!!!
 ## Attempt 1-100
 
 I will run the following command:
-`terrad tx wasm instantiate 7744 "'{"admins": ["terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr"], "mutable": "true"}'" --label WBA_test_cw1_whitelist --admin terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr --from test3 --node https://terra-testnet-rpc.polkachu.com:443 --chain-id pisco-1 --gas-prices 0.25uluna --gas auto --gas-adjustment 1.3 -y -b block --output json `
+`terrad tx wasm instantiate 7744 '{"admins": ["terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr"], "mutable": true}' --label WBA_test_cw1_whitelist --admin terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr --from test3 --node https://terra-testnet-rpc.polkachu.com:443 --chain-id pisco-1 --gas-prices 0.25uluna --gas auto --gas-adjustment 1.3 -y -b block --output json `
 
 At this directory:  
 `~/repos/Flarnrules-CW-Q1-2023/Cluster-2/code-challenges/test-cw1-whitelist/artifacts$`
@@ -281,3 +281,14 @@ At this directory:
 Result: `Error: payload msg: invalid`
 
 Okay.. still stuck after rewriting the JSON encoded init arguments. I need help again.
+
+## Attempt 100
+
+It worked!
+
+```
+gas estimate: 192531
+{"height":"4276021","txhash":"F4CE7D332BA9FC790BAB814BB229470C718C379AE970C6871E2441D740AC9B2D","codespace":"","code":0,"data":"0A6E0A282F636F736D7761736D2E7761736D2E76312E4D7367496E7374616E7469617465436F6E747261637412420A407465727261317430306D3566306E6672713776663976356E7832333961663472726C647579653839743479387A303374713578307678716D337339377638326B","raw_log":"[{\"events\":[{\"type\":\"instantiate\",\"attributes\":[{\"key\":\"_contract_address\",\"value\":\"terra1t00m5f0nfrq7vf9v5nx239af4rrlduye89t4y8z03tq5x0vxqm3s97v82k\"},{\"key\":\"code_id\",\"value\":\"7744\"}]},{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"/cosmwasm.wasm.v1.MsgInstantiateContract\"},{\"key\":\"module\",\"value\":\"wasm\"},{\"key\":\"sender\",\"value\":\"terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr\"}]}]}]","logs":[{"msg_index":0,"log":"","events":[{"type":"instantiate","attributes":[{"key":"_contract_address","value":"terra1t00m5f0nfrq7vf9v5nx239af4rrlduye89t4y8z03tq5x0vxqm3s97v82k"},{"key":"code_id","value":"7744"}]},{"type":"message","attributes":[{"key":"action","value":"/cosmwasm.wasm.v1.MsgInstantiateContract"},{"key":"module","value":"wasm"},{"key":"sender","value":"terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr"}]}]}],"info":"","gas_wanted":"192531","gas_used":"162536","tx":null,"timestamp":"","events":[{"type":"coin_spent","attributes":[{"key":"c3BlbmRlcg==","value":"dGVycmExM3ZnNXVxejc1bnphbXF3OHUwM3F5ZHZjNnRnbnRjZnF3ZDNhZnI=","index":true},{"key":"YW1vdW50","value":"NDgxMzN1bHVuYQ==","index":true}]},{"type":"coin_received","attributes":[{"key":"cmVjZWl2ZXI=","value":"dGVycmExN3hwZnZha20yYW1nOTYyeWxzNmY4NHoza2VsbDhjNWxrYWVxZmE=","index":true},{"key":"YW1vdW50","value":"NDgxMzN1bHVuYQ==","index":true}]},{"type":"transfer","attributes":[{"key":"cmVjaXBpZW50","value":"dGVycmExN3hwZnZha20yYW1nOTYyeWxzNmY4NHoza2VsbDhjNWxrYWVxZmE=","index":true},{"key":"c2VuZGVy","value":"dGVycmExM3ZnNXVxejc1bnphbXF3OHUwM3F5ZHZjNnRnbnRjZnF3ZDNhZnI=","index":true},{"key":"YW1vdW50","value":"NDgxMzN1bHVuYQ==","index":true}]},{"type":"message","attributes":[{"key":"c2VuZGVy","value":"dGVycmExM3ZnNXVxejc1bnphbXF3OHUwM3F5ZHZjNnRnbnRjZnF3ZDNhZnI=","index":true}]},{"type":"tx","attributes":[{"key":"ZmVl","value":"NDgxMzN1bHVuYQ==","index":true},{"key":"ZmVlX3BheWVy","value":"dGVycmExM3ZnNXVxejc1bnphbXF3OHUwM3F5ZHZjNnRnbnRjZnF3ZDNhZnI=","index":true}]},{"type":"tx","attributes":[{"key":"YWNjX3NlcQ==","value":"dGVycmExM3ZnNXVxejc1bnphbXF3OHUwM3F5ZHZjNnRnbnRjZnF3ZDNhZnIvMQ==","index":true}]},{"type":"tx","attributes":[{"key":"c2lnbmF0dXJl","value":"Wjh4c0lhQWFwRWxQN2Z3YXBOQzNvNHB2aGF3THNwK2xGUDZMMFJwaU9wZ2xyK3pQa0VDV283clJHUkFnMEJrY0VzZ2lWaW54SldwQjJBcWUxT0RyUVE9PQ==","index":true}]},{"type":"message","attributes":[{"key":"YWN0aW9u","value":"L2Nvc213YXNtLndhc20udjEuTXNnSW5zdGFudGlhdGVDb250cmFjdA==","index":true}]},{"type":"message","attributes":[{"key":"bW9kdWxl","value":"d2FzbQ==","index":true},{"key":"c2VuZGVy","value":"dGVycmExM3ZnNXVxejc1bnphbXF3OHUwM3F5ZHZjNnRnbnRjZnF3ZDNhZnI=","index":true}]},{"type":"instantiate","attributes":[{"key":"X2NvbnRyYWN0X2FkZHJlc3M=","value":"dGVycmExdDAwbTVmMG5mcnE3dmY5djVueDIzOWFmNHJybGR1eWU4OXQ0eTh6MDN0cTV4MHZ4cW0zczk3djgyaw==","index":true},{"key":"Y29kZV9pZA==","value":"Nzc0NA==","index":true}]}]}
+```
+
+Not sure what to do next...
