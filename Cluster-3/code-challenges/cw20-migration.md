@@ -61,3 +61,35 @@ white whale
 terraswap
 junoswap
 wynndex
+
+We only need 1 contract.
+
+That contract needs to be able to instantiate a cw20 token.
+
+We need the code-id of the token contract that can instantiate a cw20 token.
+
+=
+1. Find a code id.
+
+OR
+
+2. Compile your own and upload it, so you get a code id.
+The code id - is important when it gets deployed on the testnet.
+
+=
+The way you interact with that other contract is with messages.
+When you want to create the token - instantiate.
+Then mint.
+The burn, transfer.
+Go back to Cluster2 slides.
+Need to use Wasm messages to interact and send mint message, transfer message, send or burn message.
+With the contract address, you need to save it on your contract - you need a reference to it to talk to the contract later that you instantite.
+=
+Once you instantiate the token, you need to store that address.
+=
+There are two ways to store.
+=
+Go back and watch the lesson with reply entrypoint.
+=
+Learn about the virus message.
+=
