@@ -30,21 +30,29 @@ name: test2
 
 
 
-##
+## Actions
+
+### Create New minimal template called "wba-cw20-migration"
 
 `cargo generate --git https://github.com/CosmWasm/cw-template.git --name wba-cw20-migration -d minimal=true`
 
-## Process
+### 
 
-1. Create a workspace. Requires 2 contracts.
+## Steps
 
-2. Fork base code for both contracts.
+1. `cargo generate` new minimal template called "wba-cw20-migration"
 
-3. Clone both contracts into my new workspace.
+2. clone the cw20 base contract and load it to a testnet.
 
-4. Pick a testnet. Javier seems to like Luna, but what if we use Juno testnet?
+3. write code in "wba-cw20-migration" to do a bunch fo tasks:
+  1. instantiate cw20 token
+  2. mint x number of those cw20 tokens
+  3. send x number of those cw20 tokens to the contract
 
-5. 
+3. migrate the contract
+
+4. withdraw the tokens
+
 
 Compile cw-20 contract.
 
