@@ -27,6 +27,12 @@ name: test2
   pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"ApcPDuIQILfiPSt9/D+B/uzfrGAId/u1VLsDljKD60mw"}'
   mnemonic: ""
 
+name: test3
+  type: local
+  address: terra13vg5uqz75nzamqw8u03qydvc6tgntcfqwd3afr
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A2ULirKgRDudpplI589W/ZbWEyeDTTuiZsuOzJzuKIQ8"}'
+  mnemonic: ""
+
 
 
 
