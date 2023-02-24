@@ -17,7 +17,7 @@ pub fn instantiate(
     _info: MessageInfo,
     _msg: InstantiateMsg,
 ) -> Result<Response, ContractError> {
-    let token = info.funds[0]
+    let token = info.funds[0];
     Ok(Response::new().add_submessage)
 
     
