@@ -60,8 +60,9 @@ Step 1 - clone contract:
   
   >Overall, this command sets up a container with the necessary volume and cache mounts to build a .Rust project located in the current directory using the cosmwasm/rust-optimizer image. The rust-optimizer image includes various tools and dependencies necessary for building and optimizing Rust-based smart contracts, including the CosmWasm SDK.
 
+  6. `terrad tx wasm store cw20_base.wasm --from test3 --gas-prices 0.25uluna --gas auto --gas-adjustment 1.3 --node https://terra-testnet-rpc.polkachu.com:443 --chain-id pisco-1 -y -b block` // this stores the contract on the blockchain. I need to do this to get a code_id. My code_id is "7852".
 
-3. write code in "wba-cw20-migration" to do a bunch fo tasks:
+3. write code in "wba-cw20-migration" to do a bunch of tasks:
   1. instantiate cw20 token
   2. mint x number of those cw20 tokens
   3. send x number of those cw20 tokens to the contract
