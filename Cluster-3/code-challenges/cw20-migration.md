@@ -36,13 +36,30 @@ name: test2
 
 `cargo generate --git https://github.com/CosmWasm/cw-template.git --name wba-cw20-migration -d minimal=true`
 
-### 
+### Copy CW20-base contract so I can optimize and load it to the testnet
+
+This is basically the entire process that I completed for the previous code challenge. I'm going to try this one where I just clone it, instead of copy-pasting the contents of each .rs file
+
+Step 1 - clone contract: 
 
 ## Steps
 
 1. `cargo generate` new minimal template called "wba-cw20-migration"
 
 2. clone the cw20 base contract and load it to a testnet.
+  1. `git clone https://github.com/CosmWasm/cw-plus` // clone the repo
+  2. `cd cw-plus/contracts/` // change directory to cw-plus/contracts
+  3. `cp -R cw20-base ~/repos/Flarnrules-CW-Q1-2023/Cluster-3/code-challenges` // copy entire directory of `cw20-base` to my WBA directory.
+  4. Need to update dependencies in Cargo.toml 
+  5. `docker run --rm -v "$(pwd)":/code \
+  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
+  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+  cosmwasm/rust-optimizer:0.12.11` // this optimizes the code to a wasm file (I don't understand most of this command, I just know what it does)
+
+  *According to ChatGPT:* 
+  
+  >Overall, this command sets up a container with the necessary volume and cache mounts to build a .Rust project located in the current directory using the cosmwasm/rust-optimizer image. The rust-optimizer image includes various tools and dependencies necessary for building and optimizing Rust-based smart contracts, including the CosmWasm SDK.
+
 
 3. write code in "wba-cw20-migration" to do a bunch fo tasks:
   1. instantiate cw20 token
