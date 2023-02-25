@@ -116,6 +116,8 @@ I think that for the capstone project, much of this can be pared down. The follo
 5. Nodescapes (512)
 6. Sentry Nodes (11,776)
 
+Maybe gonna scrap this - and work the #42 into this
+
 Each Sentry Node has a specific location on "The Grid". The Grid is like the motherboard of a computer, it's the substrate on which all of the other structures are connected. The grid is divided into 4 quadrants.
 
 Each quadrant contains 16 cores, for a total of 64 Cores. Each core contains a grid of 4 rows and 2 columns of Nodescapes. Each Nodescape contains 23 Sentry Nodes.
