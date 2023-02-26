@@ -1,5 +1,5 @@
-// located at 
-// https://github.com/Art3miX/wasmswap-contracts/blob/main/src/contract.rs
+// This is the contract.rs file located at:
+// https://github.com/Wasmswap/wasmswap-contracts/tree/main/src
 
 use cosmwasm_std::{
     attr, entry_point, to_binary, Addr, Binary, BlockInfo, Coin, CosmosMsg, Decimal, Deps, DepsMut,
