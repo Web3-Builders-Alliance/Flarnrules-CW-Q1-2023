@@ -280,7 +280,7 @@ At this directory:
 
 Result: `Error: payload msg: invalid`
 
-Okay.. still stuck after rewriting the JSON encoded init arguments. I need help again.
+**Okay.. still stuck after rewriting the JSON encoded init arguments. I need help again.**
 
 The JSON-encoded init argument needs to be enclosed in single quotes.
 
