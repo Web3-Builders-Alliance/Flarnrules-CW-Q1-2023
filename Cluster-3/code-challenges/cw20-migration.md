@@ -69,7 +69,16 @@ Step 1 - clone contract:
   6. `terrad tx wasm store cw20_base.wasm --from test3 --gas-prices 0.25uluna --gas auto --gas-adjustment 1.3 --node https://terra-testnet-rpc.polkachu.com:443 --chain-id pisco-1 -y -b block` // this stores the contract on the blockchain. I need to do this to get a code_id. My code_id is "7852".
 
 3. write code in "wba-cw20-migration" to do a bunch of tasks:
-  1. instantiate cw20 token
+  1. instantiate cw20 token:
+
+  {
+    "coin_denom": {"native": "<DENOM>"},
+    "cw20_token_denom: {"cw20": "<CONTRACT_ADDRESS>"}
+    "mint_token_code_id": '<7852>'
+  }
+
+
+
   2. mint x number of those cw20 tokens
   3. send x number of those cw20 tokens to the contract
 
@@ -93,6 +102,21 @@ white whale
 terraswap
 junoswap
 wynndex
+
+From wasmswap, the instantiation message for an lp token is:
+
+{
+    "token1_denom": {"native": "<DENOM>"},
+    "token2_denom": {"cw20": "<CONTRACT_ADDRESS>"},
+    "lp_token_code_id": '<CW20_CODE_ID>'
+}
+
+I modified for a simple token mint:
+
+{
+    "mint_token_code_id": '<7852>'
+}
+
 
 We only need 1 contract.
 
