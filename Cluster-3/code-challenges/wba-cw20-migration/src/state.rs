@@ -1,19 +1,10 @@
-use schemars::JsonSchema;
-use serde::{Deserialize, Serialize};
+use cw_storage::Item;
+use cosmwasm_std::
 
-use cosmwasm_std::{Addr, Decimal, Uint128};
-use cw20::Denom;
-use cw_storage_plus::Item;
+// constant state item to hold the hard-coded contract address
+pub const CW20_ADDRESS: Item<CW20Address> = Item::new("terra1n6ktwxmyr48rackdv4xapvggc4kg0rrvyc4ufhd543mx96knnh4sf78tsy");
 
-pub const WBA_CHALLENGE_TOKEN: Item<Addr> = Item::new("wba_challenge_token");
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-pub struct Token {
-    pub reserve: Uint128,
-    pub denom: Denom,
+// structure to hold the address of our contract
+pub struct CW20Address {
+    address: Addr
 }
-
-pub const TOKEN1: Item<Token> = Item::new("token1");
-
-pub const OWNER: Item<Option<Addr>> = Item::new("owner");
-

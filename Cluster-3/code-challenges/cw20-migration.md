@@ -149,3 +149,31 @@ Go back and watch the lesson with reply entrypoint.
 =
 Learn about the virus message.
 =
+
+# CW-20 Instantiation command
+
+```bash
+terrad tx wasm instantiate 7852 '{
+  "name": "BenAndBenCoin",
+  "symbol": "BNB",
+  "decimals": 18,
+  "initial_balances": [
+    {
+      "address": "terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4",
+      "amount": "100000000000000000000"
+    },
+    {
+      "address": "terra1kykjpj6vx733nl223h3f3kgztl5dm3h66pumt7",
+      "amount": "200000000000000000000"
+    }
+  ]
+}' --label "Code Challenge" --from terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4 $TXFLAG --no-admin
+```
+
+Contract Address:
+terra1n6ktwxmyr48rackdv4xapvggc4kg0rrvyc4ufhd543mx96knnh4sf78tsy
+
+=
+Output
+
+{"height":"4406288","txhash":"CAF2A17780E244DC641BDECE83A2973DA720FC7FF8ACC79198013691F8B62BC2","codespace":"","code":0,"data":"0A6E0A282F636F736D7761736D2E7761736D2E76312E4D7367496E7374616E7469617465436F6E747261637412420A407465727261316E366B7477786D797234387261636B64763478617076676763346B6730727276796334756668643534336D7839366B6E6E683473663738747379","raw_log":"[{\"events\":[{\"type\":\"instantiate\",\"attributes\":[{\"key\":\"_contract_address\",\"value\":\"terra1n6ktwxmyr48rackdv4xapvggc4kg0rrvyc4ufhd543mx96knnh4sf78tsy\"},{\"key\":\"code_id\",\"value\":\"7852\"}]},{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"/cosmwasm.wasm.v1.MsgInstantiateContract\"},{\"key\":\"module\",\"value\":\"wasm\"},{\"key\":\"sender\",\"value\":\"terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4\"}]}]}]","logs":[{"msg_index":0,"log":"","events":[{"type":"instantiate","attributes":[{"key":"_contract_address","value":"terra1n6ktwxmyr48rackdv4xapvggc4kg0rrvyc4ufhd543mx96knnh4sf78tsy"},{"key":"code_id","value":"7852"}]},{"type":"message","attributes":[{"key":"action","value":"/cosmwasm.wasm.v1.MsgInstantiateContract"},{"key":"module","value":"wasm"},{"key":"sender","value":"terra1alpwx047phjghyzzsnl85r3gyg0u67adlytpz4"}]}]}],"info":"","gas_wanted":"217709","gas_used":"181901","tx":null,"timestamp":"","events":[{"type":"coin_spent","attributes":[{"key":"c3BlbmRlcg==","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true},{"key":"YW1vdW50","value":"NTQ0Mjh1bHVuYQ==","index":true}]},{"type":"coin_received","attributes":[{"key":"cmVjZWl2ZXI=","value":"dGVycmExN3hwZnZha20yYW1nOTYyeWxzNmY4NHoza2VsbDhjNWxrYWVxZmE=","index":true},{"key":"YW1vdW50","value":"NTQ0Mjh1bHVuYQ==","index":true}]},{"type":"transfer","attributes":[{"key":"cmVjaXBpZW50","value":"dGVycmExN3hwZnZha20yYW1nOTYyeWxzNmY4NHoza2VsbDhjNWxrYWVxZmE=","index":true},{"key":"c2VuZGVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true},{"key":"YW1vdW50","value":"NTQ0Mjh1bHVuYQ==","index":true}]},{"type":"message","attributes":[{"key":"c2VuZGVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true}]},{"type":"tx","attributes":[{"key":"ZmVl","value":"NTQ0Mjh1bHVuYQ==","index":true},{"key":"ZmVlX3BheWVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true}]},{"type":"tx","attributes":[{"key":"YWNjX3NlcQ==","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQvMQ==","index":true}]},{"type":"tx","attributes":[{"key":"c2lnbmF0dXJl","value":"VkJUdzdnTjFCcDN1QXM3blkzblpOMDUvd0pOOW43OXorTXFTQ3Q5WFE3dGNOQ0RsZWZSL0NmNzA0cW84OExCN21xblRxZForbGQxb3I0Vkk1b1phalE9PQ==","index":true}]},{"type":"message","attributes":[{"key":"YWN0aW9u","value":"L2Nvc213YXNtLndhc20udjEuTXNnSW5zdGFudGlhdGVDb250cmFjdA==","index":true}]},{"type":"message","attributes":[{"key":"bW9kdWxl","value":"d2FzbQ==","index":true},{"key":"c2VuZGVy","value":"dGVycmExYWxwd3gwNDdwaGpnaHl6enNubDg1cjNneWcwdTY3YWRseXRwejQ=","index":true}]},{"type":"instantiate","attributes":[{"key":"X2NvbnRyYWN0X2FkZHJlc3M=","value":"dGVycmExbjZrdHd4bXlyNDhyYWNrZHY0eGFwdmdnYzRrZzBycnZ5YzR1ZmhkNTQzbXg5Nmtubmg0c2Y3OHRzeQ==","index":true},{"key":"Y29kZV9pZA==","value":"Nzg1Mg==","index":true}]}]}
