@@ -32,6 +32,11 @@ pub fn instantiate(
 
 
     // TODO: Initialize CONFIG state
+    let config = Config {
+        cw20_address: String::new(),
+        owner: msg.owner.clone(),
+    };
+    CONFIG.save(deps.storage, &config)?;
 
     // Initialize LP_TOKEN state
     let token = Coin {
@@ -40,7 +45,8 @@ pub fn instantiate(
     };
     LP_TOKEN.save(deps.storage, &token)?;
 
-    // Construct instantiate CW20 message
+    // Construct instantiate CW20 message (my contract does not need this, the CW20 contract has already been instantiated)
+    // Do I need something here though?
     let contract_address = env.contract.address;
     let cw_msg = CW20InstantiateMsg {
         name: CONTRACT_LABEL.clone().to_string(),
