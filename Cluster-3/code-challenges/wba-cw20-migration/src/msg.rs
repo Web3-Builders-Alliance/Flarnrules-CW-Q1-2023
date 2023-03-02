@@ -7,7 +7,27 @@ pub struct InstantiateMsg {
 
 #[cw_serde]
 pub enum ExecuteMsg {
-    AcceptMint {
+    AddNativeCoin {
+        native_coin_amount: Uint128,
+    }
+    
+    MintCW20Token {
+        cw20_token_amount: Uint128,
+    }
+
+    WithdrawNativeCoin {
+        native_coin_amount: Uint128,
+    }
+
+    BurnCW20Token {
+        cw20_token_amount: Uint128,
+    }
+}
+
+
+
+
+/*   AcceptMint {
         // allow a user to send uluna to this contract, send message to CW20 contract and mint corresponding amount of CW20 tokens.
         denom
         amount 
@@ -19,6 +39,7 @@ pub enum ExecuteMsg {
 
     }
 }
+*/
 
 #[cw_serde]
 #[derive(QueryResponses)]

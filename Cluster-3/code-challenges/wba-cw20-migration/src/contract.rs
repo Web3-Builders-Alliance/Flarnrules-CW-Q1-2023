@@ -32,7 +32,13 @@ pub fn execute(
     _info: MessageInfo,
     _msg: ExecuteMsg,
 ) -> Result<Response, ContractError> {
-    unimplemented!()
+    match msg {
+        ExecuteMsg::AddNativeCoin {
+            add_native_coin {
+                
+            }
+        }
+    }
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]
