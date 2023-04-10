@@ -134,3 +134,14 @@ wasmd keys add wallet
 
   running `wasmd` in the sentry_nodes folder gives me a "command not found" error. That's not good. Okay looks like I need to be **in** the wasmd directory, which means I need to open up another terminal.
 
+Ok even in the wasmd directory I get a "command not found". Somthing is wrong.
+
+This quickstart is causing me some headaches, maybe I can just go to the official juno docs and use juno instead.
+
+Juno testnet setup:
+
+First, I know from another WBA classmate that the juno smart contract testing tool is fairly intuitive, so maybe the docs are better. I'm officially stuck after reading Juno docs, they just send me to book.cosmwasm.com
+
+Let's look at what I did for the pisco-1 testnet.
+
+
