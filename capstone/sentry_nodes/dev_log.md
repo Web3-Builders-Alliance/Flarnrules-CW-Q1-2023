@@ -121,3 +121,16 @@ export TXFLAG=($NODE --chain-id $CHAIN_ID --gas-prices 0.05umlg --gas auto --gas
 ```
 Then I need to run `source malaga.env` to run all of the xport commands in the `malaga.env` file to set the environment variables in my *current* terminal session. **I wonder if this is needed evey time I work with a different blockchain. Something to try to commit to memory if so.**
 
+3. Prepare the account. Need to add a new key to the `wasmd` config:
+
+```
+wasmd keys add wallet
+- name: wallet
+  type: local
+  address: wasm1wukxp2kldxae36rgjz28umqtq792twtxdfe6ux
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A8pamTZH8x8+8UAFjndrvU4x7foJbCvcz78buyQ8q7+k"}'
+  mnemonic: ""
+  ```
+
+  running `wasmd` in the sentry_nodes folder gives me a "command not found" error. That's not good. Okay looks like I need to be **in** the wasmd directory, which means I need to open up another terminal.
+
