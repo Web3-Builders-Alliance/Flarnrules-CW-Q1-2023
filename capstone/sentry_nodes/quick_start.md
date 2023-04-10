@@ -16,6 +16,7 @@ To follow the quick start, you will need the following:
 3. wasmd
 4. Docker
 
+### 1.1 Installation
 
 You will need to install the Rust programming language on your machine.
 
@@ -37,7 +38,17 @@ To install wasmd run the following commands:
 `cd ./wasmd` // change directory into the new repo ./wasmd
 `make install` // installs wasmd
 
+### 1.2 Verifying the installation
 
+First we need to verify that the installation was sucessful by running a few tests.
+
+`git clone git@github.com:CosmWasm/cw-plus.git` // clone the cw-plus github repo, a collection of CosmWasm compliant contracts  
+`cd ./cw-plus` // go into the cw-plus repo  
+`cw-plus $ cargo test` // test all of the contracts in the repo  
+
+You should get an output that looks like this:
+
+![a screenshot of a terminal read out indicating code that compiles and tests that pass](media/verify_wasmd.png)
 
 ## 2 Testnet setup
 

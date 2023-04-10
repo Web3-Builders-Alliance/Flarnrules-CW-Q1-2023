@@ -73,5 +73,8 @@ The most useful bookmark here is the CosmWasm book for setting up the developmen
 
 Prerequirements include the Rust programming language.
 
-Quick start with `wasmd`. I think I'm going to start here.
+Quick start with `wasmd`. I think I'm going to start here. I am going to create a "quick_start.md" file to document a walkthrough to get a project started, as this entire project is to be designed to be beginner friendly. The quick start will be a walkthrough for someone starting with basically a blank sheet.
 
+verifying installation is important, so far it compiled and tests all passed.
+
+next I need to verify that I can build some smart contracts.
