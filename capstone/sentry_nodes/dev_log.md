@@ -78,3 +78,46 @@ Quick start with `wasmd`. I think I'm going to start here. I am going to create 
 verifying installation is important, so far it compiled and tests all passed.
 
 next I need to verify that I can build some smart contracts.
+
+
+**3 4/10/2023**
+Late afternoon, trying to make a bit more progress. Let's pick up where we left off.
+
+I was in the process of setting up the environment for wasmd. I need to got hough the Testnet setup, which is documented in the cosmwasm book here: https://book.cosmwasm.com/wasmd-quick-start/testnet.html
+
+I'm a bit confused by the instructions:
+
+1. Pick a testnet, doc recommend CosmWasm testnet malaga-420
+
+2. Create a malaga.env file that sets the environment variables to the proper values. I'm not 100% sure where I should be running all of these export commands, or where I am suppose to create the `malaga.env` file so I'm going to ask ChatGPT to see if I can get some clarity. After asking ChatGPT, I have decided to create the malaga.env file in my home directory so I'll run the following commands:
+
+`cd ~`
+`touch malaga.env`
+`code .`
+
+And then copy paste the following lines in the malaga.env file:
+
+```
+export CHAIN_ID="malaga-420"
+export TESTNET_NAME="malaga-420"
+export FEE_DENOM="umlg"
+export STAKE_DENOM="uand"
+export BECH32_HRP="wasm"
+export WASMD_VERSION="v0.27.0"
+export CONFIG_DIR=".wasmd"
+export BINARY="wasmd"
+
+export GENESIS_URL="https://raw.githubusercontent.com/CosmWasm/testnets/master/malaga-420/config/genesis.json"
+
+export RPC="https://rpc.malaga-420.cosmwasm.com:443"
+export FAUCET="https://faucet.malaga-420.cosmwasm.com"
+
+export COSMOVISOR_VERSION="v0.42.10"
+export COSMOVISOR_HOME=/root/.wasmd
+export COSMOVISOR_NAME=wasmd
+
+export NODE=(--node $RPC)
+export TXFLAG=($NODE --chain-id $CHAIN_ID --gas-prices 0.05umlg --gas auto --gas-adjustment 1.3)
+```
+Then I need to run `source malaga.env` to run all of the xport commands in the `malaga.env` file to set the environment variables in my *current* terminal session. **I wonder if this is needed evey time I work with a different blockchain. Something to try to commit to memory if so.**
+
