@@ -17,11 +17,11 @@ That's really not as detailed as I was expecting. I'm going to write out some re
 
 ## Timeline
 
-**Due Date:** April 16, 2023
+**Due Date:** April 14, 2023
 
 **Smart Contract:**
 
-1. Developer environment created and project set up. 4/10
+1. Developer environment created and project set up. 4/9
 2. Smart contract written 4/12
 3. Docs written 4/12
 4. Video created 4/12
@@ -57,4 +57,21 @@ Alright. It's 11:40pm, I don't think I have any more energy to continue this ton
 
 Time to push my dev log to my remote repo so I can keep hacking away at this on my laptop tomorrow!
 
-**2**
+**2 4/9/2023**
+
+Need to set up the developer environment. Firs start by opening up the CosmWasm bookmark in Google Chrome.
+
+Wep pages include:
+
+- Introduction - CosmWasm book: https://book.cosmwasm.com/
+- The wasmswap-contracts repo on Art3miX's github: https://github.com/Art3miX/wasmswap-contracts/blob/main/scripts/add_liquidity.sh 
+- The dao-contracts repo on DAO-DAO's github: https://github.com/Art3miX/wasmswap-contracts/blob/main/scripts/add_liquidity.sh
+- The Terra Faucet set to the Pisco-1 testnet: https://faucet.terra.money/
+- The cw-template repo on CosmWasm's github: https://github.com/CosmWasm/cw-template
+
+The most useful bookmark here is the CosmWasm book for setting up the development environment.
+
+Prerequirements include the Rust programming language.
+
+Quick start with `wasmd`. I think I'm going to start here.
+
