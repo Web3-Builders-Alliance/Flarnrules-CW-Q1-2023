@@ -50,6 +50,12 @@ You should get an output that looks like this:
 
 ![a screenshot of a terminal read out indicating code that compiles and tests that pass](media/verify_wasmd.png)
 
+Then you need to build a contract, and then test to see if that contract was built correctly.
+
+The contract will go into your Target directory and be saved as a .wasm file, which means it's all packaged up and could be ready to be deployed.
+
+`cosmwasm-check ./target/wasm32-unknown-unknown/release/cw1_whitelist.wasm`
+
 ## 2 Testnet setup
 
 We will be using the CosmWasm test net malaga-420, which is the generic CosmWasm test net.
