@@ -144,4 +144,112 @@ First, I know from another WBA classmate that the juno smart contract testing to
 
 Let's look at what I did for the pisco-1 testnet.
 
+**4 4/11/2023**
+
+Got junod working thanks to some assistance from a fellow WBA member. Problem is that I can't figure out if its the right version of the Juno testnet that I'm connecting to. It doesn't really matter at this point, I just need to get started writing my contract.
+
+I've started on some of the pseudo code:
+
+funds -> splitter contract -> split funds -> recipients
+
+As all CosmWasm smart contracts, there will be the following messages:
+
+`instantiate`
+The instantiate message needs to take in information like:
+How many recipients
+The addresses of each recipient
+The split % for each recipient
+
+`execute`
+The execute messages will all happen automatically. Once
+the contract is instantiated, the execute messages happen
+based on either the passage of time, or the amount of funds
+residing int he contract.
+
+Based on my grasp of the contract mechanism, I think that this contract will only need to have one execute message called "split".
+
+Split will execute every time a specific milestone is reached.
+The parameters for the milestone will be determined based on
+the user input when instantiating the contract.
+
+`query`
+Users should be able to query the contract to provide summary information:
+- Total funds in the contract
+- The number of recipients
+- The addresses of the recipients
+- The % allocation to each recpient
+
+- The total amount of funds to ever be received by the contract
+- The total amount of funds received by each of the recipients
+
+There should be some more detailed queries as well:
+- Daily funds received.
+- Daily funds allocated by receipient
+... and so on.
+
+I'm going to paste all of this into GPT-4 and see what it spits out....
+
+=
+
+Okay not bad. First we need a couple of structs.
+
+A struct for storing recipient info including the recipient address and assigned weight.
+
+```rust
+pub struct Recipient {
+  pub address: Addr,
+  pub weight: u32,
+}
+```
+
+A struct for storing contract state, incluidng the recipients, the total weight (sum of all recipient weights), the next disbursement time, and the disbursement configuration parameters:
+
+```rust
+pub struct State {
+  pub recipients: Vec<Recipient>,
+  pub total_weight: u32,
+  pub next_disbursement_time: u64,
+  pub disbursement_interval_blocks: Option<u64>,
+  pub disbursement_interval_days: Option<u64>,
+  pub disbursement_amount_threshold: Option<Uint128>
+}
+```
+
+An initiailiztion function:
+
+``` rust
+pub fn instantiate(
+    deps: DepsMut,
+    _env: Env,
+    info: MessageInfo,
+    msg: InstantiateMsg,
+) -> Result<Response, ContractError> { /* Implementation */ }
+```
+
+An execute function:
+
+``` rust
+pub fn execute(
+    deps: DepsMut,
+    env: Env,
+    info: MessageInfo,
+    msg: ExecuteMsg,
+) -> Result<Response, ContractError> { /* Implementation */ }
+```
+
+And last, a query function:
+
+``` rust
+pub fn query(
+  deps: Deps,
+  env: Env,
+  msg: QueryMsg
+) -> Result<Binary, ContractError> { /* Implementation */}
+```
+
+All three functions use The Actor Model, which is an important concept in CosmWasm and required for the contract to work, so that's pretty cool.
+
+
+
+
 
