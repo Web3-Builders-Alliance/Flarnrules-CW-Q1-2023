@@ -249,7 +249,17 @@ pub fn query(
 
 All three functions use The Actor Model, which is an important concept in CosmWasm and required for the contract to work, so that's pretty cool.
 
+**5 - May 19, 2023**
 
+Okay it's been a while since I've worked on this. I think I went through a serious bout of depression when I realized I really did not feel equipped to handle the complexities of building a smart contrac ton Cosmos.
+
+I think one of the issues I ran into was that there seems to be an attitude that this stuff is "pretty easy" when it's actually pretty complex. I get that it's probably easy for a lot of people who have been steeped in this stuff for a long ass time, but for people who are new to the scene, it's pretty complex.
+
+Anyways, I guess that's the point. It truly is complex! This requires a lot of knowledge and effort, so I can't just try for a little bit and expect big results. I need to actaully *work hard* which I'm not super great at. I'm good at *having fun while working*, so when I'm not having fun... I tend to quit pretty quickly. Anyways, I digress.
+
+Super happy to be developing this project again. Quick change to the readme just now, I've made sure to name the project in the `README.md` file The Splitter Contract, because that's what this project is. It is not Sentry Nodes, just an important puzzle piece that will be used by Sentry Nodes.
+
+I was coming here to find the diagram for the splitter contract, not actually write any code.
 
 
 
